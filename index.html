@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dynamic Material Form</title>
+    <base href="https://iresa-org.github.io/dynamic-material-form/">    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script>
+      // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+  <link rel="stylesheet" href="styles.e4702d9cfd9c6a3b013b.css"></head>
+  <body>
+    <app-root></app-root>
+  <script src="runtime.4fe7e636b07188fde8e7.js" defer></script><script src="polyfills.cd4ed4a1f6b365dfb0f8.js" defer></script><script src="main.f7de98759f5cf0dfb83b.js" defer></script></body>
+</html>
