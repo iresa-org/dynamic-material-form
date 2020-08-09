@@ -3,20 +3,21 @@
     <div class="column">
       <h3>Dynamic Form</h3>
       <form [formGroup]="formGroup">
-        <div *ngFor="let field of formConfig">
+        <div class="input-field" *ngFor="let field of formConfig">
           <app-dynamic-field
             [formGroup]="formGroup"
             [name]="field.name"
             [type]="field.type"
             [label]="field.label"
             [options]="field.options || []"
+            [validations]="field.validations || []"
           ></app-dynamic-field>
         </div>
       </form>
     </div>
     <div class="column">
-      <h3>Form Values</h3>
-      <pre>{{ formGroup.value | json }}</pre>
+      <h3>Form Configurations</h3>
+      <pre>{{ formConfig | json }}</pre>
     </div>
   </div>
 </div>

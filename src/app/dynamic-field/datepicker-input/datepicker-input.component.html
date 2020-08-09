@@ -1,6 +1,6 @@
 <mat-form-field [formGroup]="formGroup" class="field-full-width">
   <mat-label>{{ label }}</mat-label>
-  <input matInput [formControlName]="name" [matDatepicker]="picker" />
+  <input matInput [formControlName]="name" [matDatepicker]="picker" autocomplete="off" />
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>

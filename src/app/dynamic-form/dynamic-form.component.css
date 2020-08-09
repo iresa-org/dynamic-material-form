@@ -15,3 +15,8 @@
   flex-basis: 100%;
   flex: 1;
 }
+
+.input-field {
+  margin: 5px;
+  width: 300px;
+}

@@ -1,4 +1,9 @@
 <mat-form-field [formGroup]="formGroup" class="field-full-width">
   <mat-label>{{ label }}</mat-label>
-  <input matInput [formControlName]="name" />
+  <input matInput [formControlName]="name" [required]="required" autocomplete="off" />
+  <mat-error *ngFor="let val of validations">
+    <mat-error *ngIf="formGroup.get(name).hasError(val.name)">
+      {{ val.message }}
+    </mat-error>
+  </mat-error>
 </mat-form-field>

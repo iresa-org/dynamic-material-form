@@ -25,7 +25,7 @@ export class DatepickerInputComponent implements OnInit, DynamicFieldModel {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }
 
 @NgModule({

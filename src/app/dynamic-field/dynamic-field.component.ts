@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, Input, ComponentFactoryResolver, Injector, Compiler } from '@angular/core';
-import { DynamicFieldModel } from './dynamic-field-model';
+import { DynamicFieldModel, FieldValidationModel } from './dynamic-field-model';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -25,6 +25,9 @@ export class DynamicFieldComponent implements OnInit, DynamicFieldModel {
   @Input()
   type: string;
 
+  @Input()
+  validations: FieldValidationModel[];
+
   // map storing method to load dynamic component
   componentMap: any;
 
@@ -33,12 +36,12 @@ export class DynamicFieldComponent implements OnInit, DynamicFieldModel {
 
   constructor(private cfr: ComponentFactoryResolver, private injector: Injector, private compiler: Compiler) {}
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<any> {
     this.initComponentMap();
     await this.loadInputComponent();
   }
 
-  async loadInputComponent() {
+  async loadInputComponent(): Promise<any> {
     if (this.type) {
       const componentFactory = await this.componentMap[this.type]();
       const compRef = this.inputContainer.createComponent(componentFactory, undefined, this.injector);
@@ -47,6 +50,7 @@ export class DynamicFieldComponent implements OnInit, DynamicFieldModel {
       this.instance.name = this.name;
       this.instance.label = this.label;
       this.instance.options = this.options;
+      this.instance.validations = this.validations;
     } else {
       throw new Error("Field's Type is missing");
     }

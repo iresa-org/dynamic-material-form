@@ -1,7 +1,15 @@
 import { DynamicFieldModel } from '../dynamic-field';
 
 export const FormConfig: DynamicFieldModel[] = [
-  { label: 'Text', name: 'text', type: 'text' },
+  {
+    label: 'Text',
+    name: 'text',
+    type: 'text',
+    validations: [
+      { name: 'required', message: 'This field is required' },
+      { name: 'maxlength', message: 'Cannot exceed 10 characters', params: 10 }
+    ]
+  },
   {
     label: 'Select',
     name: 'select',
