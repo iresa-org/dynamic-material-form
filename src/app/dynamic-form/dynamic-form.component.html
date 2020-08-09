@@ -1,0 +1,22 @@
+<div class="form-wrapper">
+  <div class="row">
+    <div class="column">
+      <h3>Dynamic Form</h3>
+      <form [formGroup]="formGroup">
+        <div *ngFor="let field of formConfig">
+          <app-dynamic-field
+            [formGroup]="formGroup"
+            [name]="field.name"
+            [type]="field.type"
+            [label]="field.label"
+            [options]="field.options || []"
+          ></app-dynamic-field>
+        </div>
+      </form>
+    </div>
+    <div class="column">
+      <h3>Form Values</h3>
+      <pre>{{ formGroup.value | json }}</pre>
+    </div>
+  </div>
+</div>
